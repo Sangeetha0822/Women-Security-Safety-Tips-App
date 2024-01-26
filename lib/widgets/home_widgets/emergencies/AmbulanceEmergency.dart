@@ -32,7 +32,7 @@ class AmbulanceEmergency extends StatelessWidget {
                   ],
                 )),
             child: Padding(
-              padding: const EdgeInsets.all(6.0),
+              padding: const EdgeInsets.all(8.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -62,8 +62,8 @@ class AmbulanceEmergency extends StatelessWidget {
                           ),
                         ),
                         Container(
-                          height: 20,
-                          width: 50,
+                          height: 30,
+                          width: 80,
                           decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(20),

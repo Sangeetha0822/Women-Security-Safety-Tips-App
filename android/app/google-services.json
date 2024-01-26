@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "834352443568",
-    "project_id": "mini-90070",
-    "storage_bucket": "mini-90070.appspot.com"
+    "project_number": "224059079114",
+    "project_id": "womens-safety-tip-app",
+    "storage_bucket": "womens-safety-tip-app.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:834352443568:android:4e1ab3e1cf2113467c8b75",
+        "mobilesdk_app_id": "1:224059079114:android:08ad13b00d60dc61663733",
         "android_client_info": {
           "package_name": "com.example.mini_project"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyBcR9wPwUKPzF93ctxoSd6s5btiouArCLw"
+          "current_key": "AIzaSyA77Cy7u8FrKBsFsRwFeUxptodpSKagsuw"
         }
       ],
       "services": {

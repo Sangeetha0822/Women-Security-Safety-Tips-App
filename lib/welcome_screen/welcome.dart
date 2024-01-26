@@ -1,91 +1,128 @@
-import 'package:flutter/material.dart';
-import 'package:mini_project/login/login_screen.dart';
-import 'package:mini_project/login/register.dart';
+import 'dart:ui';
 
-class WelcomeScreen extends StatelessWidget {
-  const WelcomeScreen({Key? key});
+import 'package:flutter/material.dart';
+import 'package:rive/rive.dart';
+
+import 'package:mini_project/welcome_screen/components/animated_btn.dart';
+import 'package:mini_project/welcome_screen/components/sign_in.dart';
+
+class OnbodingScreen extends StatefulWidget {
+  const OnbodingScreen({super.key});
+
+  @override
+  State<OnbodingScreen> createState() => _OnbodingScreenState();
+}
+
+class _OnbodingScreenState extends State<OnbodingScreen> {
+  late RiveAnimationController _btnAnimationController;
+
+  bool isShowSignInDialog = false;
+
+  @override
+  void initState() {
+    _btnAnimationController = OneShotAnimation(
+      "active",
+      autoplay: false,
+    );
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
-    var brightness = MediaQuery.of(context).platformBrightness;
-    final isDarkMode = brightness == Brightness.dark;
-
     return Scaffold(
-      backgroundColor: isDarkMode ? Colors.white : Colors.lightBlueAccent,
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+      body: Stack(
         children: [
-          // Title above logo image
-          Text(
-            'We Welcome You',
-            style: TextStyle(
-              color: Colors.black,
-              fontWeight: FontWeight.bold,
-              fontSize: 24.0,
+          Positioned(
+            width: MediaQuery.of(context).size.width * 1.7,
+            left: 100,
+            bottom: 100,
+            child: Image.asset(
+              "assets/Backgrounds/Spline.png",
             ),
           ),
-          const SizedBox(height: 20.0), // Add space between title and logo image
-          // Logo image
-          Container(
-            height: MediaQuery.of(context).size.height * 0.3,
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage('assets/new_logo_bg.png'),
-                fit: BoxFit.contain,
-              ),
+          Positioned.fill(
+            child: BackdropFilter(
+              filter: ImageFilter.blur(sigmaX: 20, sigmaY: 20),
+              child: const SizedBox(),
             ),
           ),
-          const SizedBox(height: 20.0), // Add space between logo image and text
-          // Welcome text
-          Text(
-            'Embrace Fear, Embody Strength',
-            style: TextStyle(
-              color: Colors.black,
-              fontWeight: FontWeight.bold,
-              fontSize: MediaQuery.of(context).size.width * 0.06,
+          const RiveAnimation.asset(
+            "assets/RiveAssets/shapes.riv",
+          ),
+          Positioned.fill(
+            child: BackdropFilter(
+              filter: ImageFilter.blur(sigmaX: 30, sigmaY: 30),
+              child: const SizedBox(),
             ),
           ),
-          const SizedBox(height: 20.0), // Add space between text and buttons
-          // Login button
-          SizedBox(
-            width: MediaQuery.of(context).size.width * 0.8,
-            child: ElevatedButton(
-              onPressed: () {
-                // Navigate to LoginScreen
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => MyLogin()),
-                );
-              },
-              style: ElevatedButton.styleFrom(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20.0),
+          AnimatedPositioned(
+            top: isShowSignInDialog ? -50 : 0,
+            height: MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.width,
+            duration: const Duration(milliseconds: 260),
+            child: SafeArea(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 32),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Spacer(),
+                    const SizedBox(
+                      width: 260,
+                      child: Column(
+                        children: [
+                          Text(
+                            "Embrace Fear,\nEmbody Strength",
+                            style: TextStyle(
+                              fontSize: 60,
+                              fontWeight: FontWeight.w700,
+                              fontFamily: "Poppins",
+                              height: 1.2,
+                            ),
+                          ),
+                          SizedBox(height: 20),
+                          Text(
+                            "EmpowerHer: A Guide to Your Safety Journey",
+                          ),
+                        ],
+                      ),
+                    ),
+                    const Spacer(flex: 2),
+                    AnimatedBtn(
+                      btnAnimationController: _btnAnimationController,
+                      press: () {
+                        _btnAnimationController.isActive = true;
+
+                        Future.delayed(
+                          const Duration(milliseconds: 800),
+                              () {
+                            setState(() {
+                              isShowSignInDialog = true;
+                            });
+                            showCustomDialog(
+                              context,
+                              onValue: (_) {},
+                            );
+                            // showCustomDialog(
+                            //   context,
+                            //   onValue: (_) {
+                            //     setState(() {
+                            //       isShowSignInDialog = false;
+                            //     });
+                            //   },
+                            // );
+                          },
+                        );
+                      },
+                    ),
+                    const Padding(
+                      padding: EdgeInsets.symmetric(vertical: 24),
+                      child: Text(
+                          "Slide to SignIn/SignUp"),
+                    )
+                  ],
                 ),
-                padding: EdgeInsets.symmetric(vertical: 15.0),
               ),
-              child: Text("Login".toUpperCase()),
-            ),
-          ),
-          const SizedBox(height: 10.0), // Add space between buttons
-          // Signup button
-          SizedBox(
-            width: MediaQuery.of(context).size.width * 0.8,
-            child: OutlinedButton(
-              onPressed: () {
-                // Navigate to RegisterScreen
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => RegisterParentScreen()),
-                );
-              },
-              style: OutlinedButton.styleFrom(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20.0),
-                ),
-                side: BorderSide(color: Colors.black),
-                padding: EdgeInsets.symmetric(vertical: 15.0),
-              ),
-              child: Text("SignUp".toUpperCase()),
             ),
           ),
         ],
