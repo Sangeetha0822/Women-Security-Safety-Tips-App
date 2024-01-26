@@ -34,9 +34,42 @@ class MyApp extends StatelessWidget {
           ),
           primarySwatch: Colors.blue,
         ),
-        home: OnbodingScreen());
+
+
+        home: OnbodingScreen(),
+
+    );
   }
 }
+/*import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Your App Name'), // Set your app name here
+        ),
+        body: YourContentWidget(), // Replace with your actual content widget
+      ),
+    );
+  }
+}
+
+class YourContentWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    // Your main content goes here
+    return Center(
+      child: Text('Hello, Flutter!'),
+    );
+  }
+}*/
 
 // class CheckAuth extends StatelessWidget {
 //   // const CheckAuth({Key? key}) : super(key: key);

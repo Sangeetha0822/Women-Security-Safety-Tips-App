@@ -1,5 +1,5 @@
-import 'package:mini_project/utils/constants.dart';
-import 'package:mini_project/safety_tips/models/course.dart';
+//import 'package:mini_project/utils/constants.dart';
+import 'package:mini_project/safety_tips/models/self_awarness_a.dart';
 import 'package:mini_project/safety_tips/screens/details_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -33,7 +33,7 @@ class _CourseScreenState extends State<CourseScreen> {
                           style: Theme.of(context).textTheme.displayMedium,
                         ),
                       ),
-                      Positioned(
+                      /*Positioned(
                         left: 0,
                         child: CustomIconButton(
                           child: const Icon(Icons.arrow_back),
@@ -41,7 +41,7 @@ class _CourseScreenState extends State<CourseScreen> {
                           width: 35,
                           onTap: () => Navigator.pop(context),
                         ),
-                      ),
+                      ),*/
                     ],
                   ),
                 ),
@@ -114,18 +114,10 @@ class CourseContainer extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(course.name),
-                  Text(
-                    "Author ${course.author}",
-                    style: Theme.of(context).textTheme.bodySmall,
-                  ),
+
                   const SizedBox(
                     height: 5,
                   ),
-                  LinearProgressIndicator(
-                    value: course.completedPercentage,
-                    backgroundColor: Colors.black12,
-                    color: kPrimaryColor,
-                  )
                 ],
               ),
             ),

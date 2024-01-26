@@ -3,6 +3,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:geocoding/geocoding.dart';
+//import 'package:mini_project/main.dart';
 import 'package:mini_project/safehome/SafeHome.dart';
 import 'package:mini_project/safety_tips/screens/featuerd_screen.dart';
 //import 'package:mini_project/widgets/bookscree.dart';
@@ -27,6 +28,7 @@ import 'package:telephony/telephony.dart';
 class HomeScreen extends StatefulWidget {
   @override
   State<HomeScreen> createState() => _HomeScreenState();
+
 }
 
 class _HomeScreenState extends State<HomeScreen> {
@@ -157,7 +159,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 padding: const EdgeInsets.all(8.0),
                 child: Column(
                   children: [
-                    //MyAppBar(),
+
                     /*CustomAppBar(
                       //quoteIndex: qIndex,
                       onTap: () {

@@ -9,7 +9,7 @@ class FamilyMember extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 10.0, bottom: 8),
+      padding: const EdgeInsets.only(left: 10.0, bottom: 10),
       child: Card(
         elevation: 5,
         shape: RoundedRectangleBorder(
@@ -18,7 +18,7 @@ class FamilyMember extends StatelessWidget {
         child: InkWell(
           onTap: () => _callNumber('16'),
           child: Container(
-            height: 160,
+            height: 190,
             width: MediaQuery.of(context).size.width * 0.8,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
@@ -32,7 +32,7 @@ class FamilyMember extends StatelessWidget {
                   ],
                 )),
             child: Padding(
-              padding: const EdgeInsets.all(6.0),
+              padding: const EdgeInsets.all(8.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -62,8 +62,8 @@ class FamilyMember extends StatelessWidget {
                           ),
                         ),
                         Container(
-                          height: 20,
-                          width: 50,
+                          height: 30,
+                          width: 60,
                           decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(20),
