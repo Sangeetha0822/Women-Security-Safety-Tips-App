@@ -1,7 +1,9 @@
 //import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+//import 'package:mini_project/safety_modules/safety_tips_home.dart';
 import 'package:mini_project/welcome_screen/welcome.dart';
+//import 'package:mini_project/welcome_screen/welcome.dart';
 //import 'package:mini_project/db/share_pref.dart';
 
 //import 'package:mini_project/utils/flutter_background_services.dart';

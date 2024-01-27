@@ -1,14 +1,10 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:rive/rive.dart';
-
 import 'package:mini_project/welcome_screen/components/animated_btn.dart';
-import 'package:mini_project/welcome_screen/components/sign_in.dart';
-
+import 'package:mini_project/welcome_screen/components/sign_up.dart';
 class OnbodingScreen extends StatefulWidget {
   const OnbodingScreen({super.key});
-
   @override
   State<OnbodingScreen> createState() => _OnbodingScreenState();
 }
@@ -16,7 +12,7 @@ class OnbodingScreen extends StatefulWidget {
 class _OnbodingScreenState extends State<OnbodingScreen> {
   late RiveAnimationController _btnAnimationController;
 
-  bool isShowSignInDialog = false;
+  bool isShowSignUpDialog = false;
 
   @override
   void initState() {
@@ -56,7 +52,7 @@ class _OnbodingScreenState extends State<OnbodingScreen> {
             ),
           ),
           AnimatedPositioned(
-            top: isShowSignInDialog ? -50 : 0,
+            top: isShowSignUpDialog ? -50 : 0,
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
             duration: const Duration(milliseconds: 260),
@@ -97,9 +93,9 @@ class _OnbodingScreenState extends State<OnbodingScreen> {
                           const Duration(milliseconds: 800),
                               () {
                             setState(() {
-                              isShowSignInDialog = true;
+                              isShowSignUpDialog = true;
                             });
-                            showCustomDialog(
+                            showSignUpDialog(
                               context,
                               onValue: (_) {},
                             );

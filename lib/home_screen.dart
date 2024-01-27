@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:geocoding/geocoding.dart';
 //import 'package:mini_project/main.dart';
 import 'package:mini_project/safehome/SafeHome.dart';
-import 'package:mini_project/safety_tips/screens/featuerd_screen.dart';
+import 'package:mini_project/safety_modules/safety_tips_home.dart';
 //import 'package:mini_project/widgets/bookscree.dart';
 import 'package:water_drop_nav_bar/water_drop_nav_bar.dart';
 
