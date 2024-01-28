@@ -2,7 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mini_project/utils/quotes.dart';
-import 'package:mini_project/widgets/home_widgets/safewebview.dart';
+import 'package:mini_project/widgets/home_widgets/live_safe/safewebview.dart';
 
 class CustomCarouel extends StatelessWidget {
   const CustomCarouel({Key? key}) : super(key: key);
@@ -22,7 +22,7 @@ class CustomCarouel extends StatelessWidget {
         ),
         items: List.generate(
           imageSliders.length,
-          (index) => Card(
+              (index) => Card(
             elevation: 5.0,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(20),
@@ -34,25 +34,25 @@ class CustomCarouel extends StatelessWidget {
                       context,
                       SafeWebView(
                           url:
-                              "https://www.herzindagi.com/society-culture/woman-dressed-as-man-for-36-years-to-bring-up-daughter-article-199127"));
+                          "https://www.herzindagi.com/society-culture/woman-dressed-as-man-for-36-years-to-bring-up-daughter-article-199127"));
                 } else if (index == 1) {
                   navigateToRoute(
                       context,
                       SafeWebView(
                           url:
-                              "https://www.thebetterindia.com/17191/women-rape-victims-survivors-emerged-winners-respect-inspiring/"));
+                          "https://www.thebetterindia.com/17191/women-rape-victims-survivors-emerged-winners-respect-inspiring/"));
                 } else if (index == 2) {
                   navigateToRoute(
                       context,
                       SafeWebView(
                           url:
-                              "https://www.buzzfeed.com/essencegant/sexual-harassment-horror-stories-from-girls-and-women"));
+                          "https://www.buzzfeed.com/essencegant/sexual-harassment-horror-stories-from-girls-and-women"));
                 } else {
                   navigateToRoute(
                       context,
                       SafeWebView(
                           url:
-                              "https://news.google.com/search?pz=1&cf=all&hl=en-IN&q=Sexual+harassment&gl=IN&ceid=IN:en"));
+                          "https://news.google.com/search?pz=1&cf=all&hl=en-IN&q=Sexual+harassment&gl=IN&ceid=IN:en"));
                 }
               },
               child: Container(

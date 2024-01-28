@@ -8,14 +8,14 @@ List sweetSayings = [
 ];
 
 List<String> articleTitle = [
-  "Women are inspirartion to  country",
-  "We have to end Violance",
-  "Be a change",
-  "You are strong"
+  "Be the kind of woman who never knew",
+  "She believed she could, so she did.",
+  "Your strength is your beauty; your grace is your power.",
+  "She's not just a story,she's a whole book of courage.",
 ];
 List<String> imageSliders = [
-  "https://media.istockphoto.com/photos/silhouette-of-super-strong-successful-businesswoman-picture-id1249879109?k=20&m=1249879109&s=612x612&w=0&h=I-joEMjqkq1wCJZJeLWUCd1d2HcB5WxBShdkA9YM0cg=",
-  "https://media.istockphoto.com/vectors/young-woman-looks-at-the-mirror-and-sees-her-happy-reflection-vector-id1278815846?k=20&m=1278815846&s=612x612&w=0&h=JUTmV9Of-_ILOfXBfV9Cmp_41yuTliSdFIcZy5LKuss=",
-  "https://media.istockphoto.com/vectors/mental-health-or-psychology-concept-with-flowering-human-head-vector-id1268669581?k=20&m=1268669581&s=612x612&w=0&h=YVLTKCZXKugEn40aqOkir4vcoFeTUAQToa1i3AFYRNU=",
-  "https://media.istockphoto.com/photos/confidence-and-strength-concept-picture-id1086700012?k=20&m=1086700012&s=612x612&w=0&h=1wWVN3AB7BH7o3y2A2b-NG3HB9H6Dwkc9OLz2lxgwAY=",
+"https://blogs.kent.ac.uk/student-services/files/2022/02/Inspiration-CES-women-day-v2.png",
+  "https://diversityq-production.s3.amazonaws.com/uploads/2021/01/female-entrepreneurs-1.jpeg",
+"https://thumbs.dreamstime.com/b/eating-disorder-slim-arabian-woman-looking-herself-fat-mirror-feel-insecure-human-rejection-yourself-eating-disorder-276558780.jpg",
+"https://img.freepik.com/free-vector/stay-home-concept-illustration_114360-2156.jpg?size=338&ext=jpg&ga=GA1.1.1412446893.1705017600&semt=aiss"
 ];

@@ -16,11 +16,9 @@ class Emergency extends StatelessWidget {
         physics: BouncingScrollPhysics(),
         scrollDirection: Axis.horizontal,
         children: [
-          FamilyMember(),
           PoliceEmergency(),
+          FamilyMember(),
           AmbulanceEmergency(),
-
-
         ],
       ),
     );

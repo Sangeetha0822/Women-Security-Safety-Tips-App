@@ -21,13 +21,7 @@ class LiveSafe extends StatelessWidget {
         throw 'Could not launch $googleUrl';
       }
     }
-    // final Uri _url = Uri.parse(googleUrl);
-    // try {
-    //   await launchUrl(_url);
-    // } catch (e) {
-    //   Fluttertoast.showToast(
-    //       msg: 'something went wrong! call emergency number');
-    // }
+
   }
 
   @override

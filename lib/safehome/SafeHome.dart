@@ -178,13 +178,13 @@ class _SafeHomeState extends State<SafeHome> {
                   child: Column(
                 children: [
                   ListTile(
-                    title: Text("Send Location"),
-                    subtitle: Text("Share Location"),
+                    title: Text("Send Location to \nFamily"),
+                    //subtitle: Text("Share Location"),
                   ),
                 ],
               )),
               ClipRRect(
-                  borderRadius: BorderRadius.circular(20),
+                  borderRadius: BorderRadius.circular(10),
                   child: Image.asset('assets/route.jpg')),
             ],
           ),

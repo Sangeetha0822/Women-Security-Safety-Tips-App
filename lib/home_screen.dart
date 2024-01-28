@@ -127,7 +127,7 @@ class _HomeScreenState extends State<HomeScreen> {
     List<TContact> contactList = await DatabaseHelper().getContactList();
 
     //String messageBody =
-        "https://maps.google.com/?daddr=${_curentPosition!.latitude},${_curentPosition!.longitude}";
+    "https://maps.google.com/?daddr=${_curentPosition!.latitude},${_curentPosition!.longitude}";
     if (await _isPermissionGranted()) {
       contactList.forEach((element) {
         //_sendSms"${element.number}", "i am in trouble $messageBody");
@@ -149,18 +149,23 @@ class _HomeScreenState extends State<HomeScreen> {
     // To close: detector.stopListening();
     // ShakeDetector.waitForStart() waits for user to call detector.startListening();
   }
-        @override
-        Widget build(BuildContext context) {
-          return Scaffold(
-            //body:Scaffold(),
+  @override
+  Widget build(BuildContext context) {
 
-            body: SafeArea(
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  children: [
+    return Scaffold(
+      //body:Scaffold(),
+      appBar: AppBar(
+        title: Text('Your Safety Matters'),
+        backgroundColor: Colors.orangeAccent,
+      ),
 
-                    /*CustomAppBar(
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            children: [
+
+              /*CustomAppBar(
                       //quoteIndex: qIndex,
                       onTap: () {
                         //getRandomQuote();
@@ -168,85 +173,84 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),*/
 
 
-                    CustomCarouel(),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                        "Emergency Contacts",
-                        style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                    Emergency(),
-                    Padding(
-                      padding: const EdgeInsets.all(6.0),
-                      child: Text(
-                        "Explore Live Savers",
-                        style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                    LiveSafe(),
-                    SafeHome(),
-                  ],
+              CustomCarouel(),
+              Padding(
+                padding: const EdgeInsets.all(6.0),
+                child: Text(
+                  "Emergency Contacts",
+                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
                 ),
               ),
-            ),
-            bottomNavigationBar: WaterDropNavBar(
-              backgroundColor: navigationBarColor,
-              onItemSelected: (int index) {
-                setState(() {
-                  selectedIndex = index;
-                });
+              Emergency(),
+              Padding(
+                padding: const EdgeInsets.all(6.0),
+                child: Text(
+                  "Explore Live Savers",
+                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                ),
+              ),
+              LiveSafe(),
+              SafeHome(),
+            ],
+          ),
+        ),
+      ),
+      bottomNavigationBar: WaterDropNavBar(
+        backgroundColor: navigationBarColor,
+        onItemSelected: (int index) {
+          setState(() {
+            selectedIndex = index;
+          });
 
-                // Use Navigator to navigate to the desired screen based on the selected index
-                switch (selectedIndex) {
-                  case 0:
-                  // Navigate to HomeScreen (optional)
-                    break;
-                  case 1:
-                  // Navigate to BookScreen (replace with your screen)
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) =>FeaturedScreen()), // Replace BookScreen with your screen
-                    );
-                    break;
-                  case 2:
-                  // Navigate to AccountScreen (replace with your screen)
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => ContactsPage()), // Replace AccountScreen with your screen
-                    );
-                    break;
-                  case 3:
-                  // Navigate to AccountScreen (replace with your screen)
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => AccountScreen()), // Replace AccountScreen with your screen
-                    );
-                    break;
-                // Add more cases for additional icons/screens as needed
-                }
-              },
-              selectedIndex: selectedIndex,
-              barItems: <BarItem>[
-                BarItem(
-                  filledIcon: Icons.home,
-                  outlinedIcon: Icons.home_rounded,
-                ),
-                BarItem(
-                  filledIcon: Icons.cast_for_education,
-                  outlinedIcon: Icons.cast_for_education_rounded,
-                ),
-                BarItem(
-                  filledIcon: Icons.contact_page,
-                  outlinedIcon: Icons.contact_page_rounded,
-                ),
-                BarItem(
-                  filledIcon: Icons.account_circle,
-                  outlinedIcon: Icons.account_circle_outlined,
-                ),
-              ],
-            ),
-          );
-        }
-      }
-
+          // Use Navigator to navigate to the desired screen based on the selected index
+          switch (selectedIndex) {
+            case 0:
+            // Navigate to HomeScreen (optional)
+              break;
+            case 1:
+            // Navigate to BookScreen (replace with your screen)
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) =>FeaturedScreen()), // Replace BookScreen with your screen
+              );
+              break;
+            case 2:
+            // Navigate to AccountScreen (replace with your screen)
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => ContactsPage()), // Replace AccountScreen with your screen
+              );
+              break;
+            case 3:
+            // Navigate to AccountScreen (replace with your screen)
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => AccountScreen()), // Replace AccountScreen with your screen
+              );
+              break;
+          // Add more cases for additional icons/screens as needed
+          }
+        },
+        selectedIndex: selectedIndex,
+        barItems: <BarItem>[
+          BarItem(
+            filledIcon: Icons.home,
+            outlinedIcon: Icons.home_rounded,
+          ),
+          BarItem(
+            filledIcon: Icons.cast_for_education,
+            outlinedIcon: Icons.cast_for_education_rounded,
+          ),
+          BarItem(
+            filledIcon: Icons.contact_page,
+            outlinedIcon: Icons.contact_page_rounded,
+          ),
+          BarItem(
+            filledIcon: Icons.account_circle,
+            outlinedIcon: Icons.account_circle_outlined,
+          ),
+        ],
+      ),
+    );
+  }
+}
