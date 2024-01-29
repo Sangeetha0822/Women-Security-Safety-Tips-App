@@ -11,7 +11,7 @@ import 'package:shake/shake.dart';
 import 'package:telephony/telephony.dart';
 import 'package:vibration/vibration.dart';
 import 'package:mini_project/db/db_services.dart';
-import 'package:mini_project/model/contactsm.dart';
+import 'package:mini_project/contacts/contactsm.dart';
 
 sendMessage(String messageBody) async {
   List<TContact> contactList = await DatabaseHelper().getContactList();

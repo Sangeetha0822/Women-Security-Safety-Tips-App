@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:mini_project/db/db_services.dart';
-import 'package:mini_project/model/contactsm.dart';
+import 'package:mini_project/contacts/contactsm.dart';
 import 'package:mini_project/utils/constants.dart';
 
 class ContactsPage extends StatefulWidget {

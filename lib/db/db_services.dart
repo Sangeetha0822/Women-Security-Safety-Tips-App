@@ -1,5 +1,7 @@
 import 'package:sqflite/sqflite.dart';
-import 'package:mini_project/model/contactsm.dart';
+//import 'package:mini_project/contacts/model/user_model.dart';
+
+import 'package:mini_project/contacts/contactsm.dart';
 
 class DatabaseHelper {
   String contactTable = 'contact_table';

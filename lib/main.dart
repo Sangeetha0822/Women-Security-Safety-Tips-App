@@ -1,24 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mini_project/welcome_screen/welcome.dart';
+import 'package:firebase_core/firebase_core.dart';
 final navigatorkey = GlobalKey<ScaffoldMessengerState>();
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  //Platform. isAndroid
+       await Firebase.initializeApp(
+    options: const FirebaseOptions(apiKey: "AIzaSyA77Cy7u8FrKBsFsRwFeUxptodpSKagsuw",
+        appId: "1:224059079114:android:08ad13b00d60dc61663733",
+        messagingSenderId: "224059079114",
+        projectId: "womens-safety-tip-app")
+  );
+  runApp(MyApp());
 }
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Womens Safety App',
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          textTheme: GoogleFonts.firaSansTextTheme(
-            Theme.of(context).textTheme,
-          ),
-          primarySwatch: Colors.blue,
+      title: 'Women\'s Safety App',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        textTheme: GoogleFonts.firaSansTextTheme(
+          Theme.of(context).textTheme,
         ),
-      home:OnbodingScreen(),
+        primarySwatch: Colors.blue,
+      ),
+      home: OnbodingScreen(),
     );
   }
 }

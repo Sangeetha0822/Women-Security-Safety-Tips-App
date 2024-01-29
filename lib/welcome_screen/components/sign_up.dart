@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+//import 'package:flutter_svg/flutter_svg.dart';
+import 'package:mini_project/welcome_screen/components/sign_in.dart';
 import 'sign_up_form.dart';
 void showSignUpDialog(BuildContext context, {required ValueChanged onValue}) {
   showGeneralDialog(
@@ -71,15 +72,28 @@ void showSignUpDialog(BuildContext context, {required ValueChanged onValue}) {
                           ),
                           Expanded(child: Divider()),
                         ],
-                      ),
-                      const Padding(
-                        padding: EdgeInsets.symmetric(vertical: 24),
+                      ),GestureDetector(
+                        onTap: () {
+                          // Redirect to the sign-in page
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => SignInDialog(onValue: (value) {}),
+                            ),
+                          );
+                        },
                         child: Text(
-                          "Sign up with Email, Apple or Google",
-                          style: TextStyle(color: Colors.black54),
+                          "Go to Sign In",
+                          style: TextStyle(
+                            color: Colors.blue, // Change color as needed
+                            fontWeight: FontWeight.w800,
+                            fontSize: 20,
+                            decoration: TextDecoration.underline,
+                          ),
                         ),
                       ),
-                      Row(
+
+                      /*Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           IconButton(
@@ -110,7 +124,7 @@ void showSignUpDialog(BuildContext context, {required ValueChanged onValue}) {
                             ),
                           ),
                         ],
-                      ),
+                      ),*/
                     ],
                   ),
                 ),

@@ -5,7 +5,7 @@ import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:mini_project/db/db_services.dart';
-import 'package:mini_project/model/contactsm.dart';
+import 'package:mini_project/contacts/contactsm.dart';
 
 class SafeHome extends StatefulWidget {
   @override

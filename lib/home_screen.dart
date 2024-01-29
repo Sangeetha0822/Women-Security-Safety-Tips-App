@@ -1,36 +1,27 @@
 //import 'dart:math';
 //import 'package:background_sms/background_sms.dart';
-
 import 'package:flutter/material.dart';
 import 'package:geocoding/geocoding.dart';
-//import 'package:mini_project/main.dart';
 import 'package:mini_project/safehome/SafeHome.dart';
 import 'package:mini_project/safety_modules/safety_tips_home.dart';
-//import 'package:mini_project/widgets/bookscree.dart';
+import 'package:mini_project/contacts/add_contacts.dart';
 import 'package:water_drop_nav_bar/water_drop_nav_bar.dart';
-
-//import 'package:mini_project/widgets/home_widgets/custom_appBar.dart';
 import 'package:mini_project/widgets/home_widgets/CustomCarouel.dart';
 import 'package:mini_project/widgets/home_widgets/emergency.dart';
 import 'package:mini_project/widgets/live_safe.dart';
-import 'package:mini_project/widgets/home_widgets/contacts.dart';
+//import 'package:mini_project/widgets/home_widgets/contacts.dart';
 import 'package:mini_project/widgets/account.dart';
 //import 'package:shake/shake.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:mini_project/db/db_services.dart';
 import 'package:geolocator/geolocator.dart';
-import 'model/contactsm.dart';
+import 'package:mini_project/contacts/contactsm.dart';
 import 'package:telephony/telephony.dart';
-
-//import 'package:mini_project/widgets/app_bar.dart';
-
 class HomeScreen extends StatefulWidget {
   @override
   State<HomeScreen> createState() => _HomeScreenState();
-
 }
-
 class _HomeScreenState extends State<HomeScreen> {
   //int qIndex = 2;
   final Color navigationBarColor = Colors.white;
@@ -218,7 +209,7 @@ class _HomeScreenState extends State<HomeScreen> {
             // Navigate to AccountScreen (replace with your screen)
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => ContactsPage()), // Replace AccountScreen with your screen
+                MaterialPageRoute(builder: (context) => AddContactsPage()), // Replace AccountScreen with your screen
               );
               break;
             case 3:
