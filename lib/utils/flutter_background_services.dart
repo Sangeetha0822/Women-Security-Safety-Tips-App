@@ -73,7 +73,7 @@ void onStart(ServiceInstance service) async {
     service.stopSelf();
   });
 
-  Timer.periodic(Duration(seconds: 2), (timer) async {
+  Timer.periodic(Duration(seconds: 1), (timer) async {
     Position? _curentPosition;
 
     if (service is AndroidServiceInstance) {
@@ -92,13 +92,13 @@ void onStart(ServiceInstance service) async {
             shakeThresholdGravity: 7,
             shakeSlopTimeMS: 500,
             shakeCountResetTime: 3000,
-            minimumShakeCount: 1,
+            minimumShakeCount: 5,
             onPhoneShake: () async {
               if (await Vibration.hasVibrator() ?? false) {
                 print("Test 2");
                 if (await Vibration.hasCustomVibrationsSupport() ?? false) {
                   print("Test 3");
-                  Vibration.vibrate(duration: 1000);
+                  Vibration.vibrate(duration: 500);
                 } else {
                   print("Test 4");
                   Vibration.vibrate();
@@ -114,12 +114,12 @@ void onStart(ServiceInstance service) async {
 
         flutterLocalNotificationsPlugin.show(
           888,
-          "women safety app",
+          "women safety ",
           "shake feature enable",
           NotificationDetails(
               android: AndroidNotificationDetails(
             "script academy",
-            "foregrounf service",
+            "foreground service",
 
             icon: 'ic_bg_service_small',
             ongoing: true,

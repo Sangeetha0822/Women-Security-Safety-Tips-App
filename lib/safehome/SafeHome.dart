@@ -24,7 +24,7 @@ class _SafeHomeState extends State<SafeHome> {
         phoneNumber: phoneNumber, message: message, simSlot: 1);
     if (result == SmsStatus.sent) {
       print("Sent");
-      Fluttertoast.showToast(msg: "send");
+      Fluttertoast.showToast(msg: "Message sent ");
     } else {
       Fluttertoast.showToast(msg: "failed");
     }
