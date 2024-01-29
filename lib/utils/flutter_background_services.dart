@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'dart:ui';
-
-//import 'package:background_sms/background_sms.dart';
+import 'package:background_sms/background_sms.dart';
 import 'package:flutter_background_service/flutter_background_service.dart';
 import 'package:flutter_background_service_android/flutter_background_service_android.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
@@ -12,7 +11,6 @@ import 'package:telephony/telephony.dart';
 import 'package:vibration/vibration.dart';
 import 'package:mini_project/db/db_services.dart';
 import 'package:mini_project/contacts/contactsm.dart';
-
 sendMessage(String messageBody) async {
   List<TContact> contactList = await DatabaseHelper().getContactList();
   if (contactList.isEmpty) {
@@ -27,7 +25,6 @@ sendMessage(String messageBody) async {
     }
   }
 }
-
 Future<void> initializeService() async {
   final service = FlutterBackgroundService();
   AndroidNotificationChannel channel = AndroidNotificationChannel(

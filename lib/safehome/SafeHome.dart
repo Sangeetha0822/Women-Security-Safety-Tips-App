@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
+//import 'package:mini_project/contacts/contacts.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:mini_project/db/db_services.dart';
 import 'package:mini_project/contacts/contactsm.dart';
@@ -18,7 +19,7 @@ class _SafeHomeState extends State<SafeHome> {
   LocationPermission? permission;
 
   _isPermissionGranted() async => await Permission.sms.status.isGranted;
-  _sendSms(String phoneNumber, String message, /*{int? simSlot}*/) async {
+  _sendSms(String phoneNumber, String message, int? simSlot) async {
     SmsStatus result = await BackgroundSms.sendMessage(
         phoneNumber: phoneNumber, message: message, simSlot: 1);
     if (result == SmsStatus.sent) {
@@ -124,9 +125,18 @@ class _SafeHomeState extends State<SafeHome> {
                 PrimaryButton(
                     title: "SEND ALERT",
                     onPressed: () async {
-                      //String recipients = "";
                       List<TContact> contactList =
                           await DatabaseHelper().getContactList();
+                      String recipients = "";
+                      int i = 1;
+                      for (TContact contact in contactList) {
+                        recipients = contact.number;
+                        if (i != contactList.length) {
+                          recipients += ";";
+                          i++;
+                        }
+                      }
+
                       print(contactList.length);
                       if (contactList.isEmpty) {
                         Fluttertoast.showToast(
@@ -137,8 +147,7 @@ class _SafeHomeState extends State<SafeHome> {
 
                         if (await _isPermissionGranted()) {
                           contactList.forEach((element) {
-                            _sendSms("${element.number}",
-                                "i am in trouble $messageBody");
+                            _sendSms("${element.number}", "I am in trouble please help me out soon $messageBody", 1);
                           });
                         } else {
                           Fluttertoast.showToast(msg: "something wrong");
