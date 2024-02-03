@@ -1,69 +1,124 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-//import 'package:flutter/services.dart';
-
-
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class AccountScreen extends StatelessWidget {
-  const AccountScreen({Key? key}) : super(key: key);
+  final String userId; // Pass the user ID to this screen
+
+  AccountScreen({required this.userId});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(20),
-        child: Column(
-          children: [
-            const SizedBox(height: 40),
-            CircleAvatar(
-              radius: 70,
-              backgroundImage: AssetImage('assets/she-safe.png'),
-            ),
-            const SizedBox(height: 20),
-            itemProfile('Name', 'Sangeetha', CupertinoIcons.person),
-            const SizedBox(height: 10),
-            itemProfile('Phone', '7807085816', CupertinoIcons.phone),
-            const SizedBox(height: 10),
-            itemProfile('Address', '905/16,2nd cross,vv puramMysore', CupertinoIcons.location),
-            const SizedBox(height: 10),
-            itemProfile('Email', 'sangeethabpandit@gmail.com', CupertinoIcons.mail),
-            const SizedBox(height: 20,),
-            SizedBox(
-              width: double.infinity,
-              child: ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                    padding: const EdgeInsets.all(15),
-                  ),
-                  child: const Text('Edit Profile')
-              ),
-            )
-          ],
-        ),
+      appBar: AppBar(
+        title: Text('Your Profile'),
+        backgroundColor: Colors.orangeAccent,
+        actions: [
+          IconButton(
+            icon: Icon(Icons.settings),
+            onPressed: () {
+              // Handle settings button click
+            },
+          ),
+        ],
       ),
-    );
-  }
+      body: StreamBuilder(
+        stream: FirebaseFirestore.instance.collection('users').doc(userId).snapshots(),
+        builder: (context, snapshot) {
+          if (!snapshot.hasData) {
+            return CircularProgressIndicator();
+          }
 
-  itemProfile(String title, String subtitle, IconData iconData) {
-    return Container(
-      decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(10),
-          boxShadow: [
-            BoxShadow(
-                offset: Offset(0, 5),
-                color: Colors.deepOrange.withOpacity(.2),
-                spreadRadius: 2,
-                blurRadius: 10
-            )
-          ]
-      ),
-      child: ListTile(
-        title: Text(title),
-        subtitle: Text(subtitle),
-        leading: Icon(iconData),
-        trailing: Icon(Icons.arrow_forward, color: Colors.grey.shade400),
-        tileColor: Colors.white,
+          var userData = snapshot.data?.data() as Map<String, dynamic>;
+
+          return Column(
+            children: [
+              // User Information Section
+              Padding(
+                padding: EdgeInsets.all(16.0),
+                child: Row(
+                  children: [
+                    CircleAvatar(
+                      radius: 50,
+                      backgroundImage: NetworkImage(userData['profileImageUrl']),
+                    ),
+                    SizedBox(width: 20),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          userData['username'],
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              // User Stats Section
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Column(
+                    children: [
+                      Text(
+                        userData['postCount'].toString(),
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Text('Posts'),
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      Text(
+                        userData['followersCount'].toString(),
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Text('Followers'),
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      Text(
+                        userData['followingCount'].toString(),
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Text('Following'),
+                    ],
+                  ),
+                ],
+              ),
+              // User Posts Section
+              Expanded(
+                child: GridView.builder(
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 3,
+                    crossAxisSpacing: 2,
+                    mainAxisSpacing: 2,
+                  ),
+                  itemCount: userData['postUrls'].length,
+                  itemBuilder: (context, index) {
+                    return Image.network(
+                      userData['postUrls'][index], // Replace with actual post image URLs
+                      fit: BoxFit.cover,
+                    );
+                  },
+                ),
+              ),
+            ],
+          );
+        },
       ),
     );
   }

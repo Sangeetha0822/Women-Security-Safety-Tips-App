@@ -2,6 +2,7 @@
 //import 'package:background_sms/background_sms.dart';
 import 'package:flutter/material.dart';
 import 'package:geocoding/geocoding.dart';
+import 'package:mini_project/memes_section/home_mem.dart';
 import 'package:mini_project/safehome/SafeHome.dart';
 import 'package:mini_project/safety_modules/safety_tips_home.dart';
 import 'package:mini_project/contacts/add_contacts.dart';
@@ -148,6 +149,21 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         title: Text('Your Safety Matters'),
         backgroundColor: Colors.orangeAccent,
+
+      actions: [
+        IconButton(
+          icon: Icon(Icons.menu),
+          onPressed: () {
+
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) =>AccountScreen(userId: '',)), // Replace BookScreen with your screen
+            );
+            // Handle menu button click
+            // You can open a drawer or show a menu here
+          },
+        ),
+      ],
       ),
 
       body: SafeArea(
@@ -196,27 +212,28 @@ class _HomeScreenState extends State<HomeScreen> {
           // Use Navigator to navigate to the desired screen based on the selected index
           switch (selectedIndex) {
             case 0:
+
             // Navigate to HomeScreen (optional)
               break;
             case 1:
             // Navigate to BookScreen (replace with your screen)
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) =>FeaturedScreen()), // Replace BookScreen with your screen
+                MaterialPageRoute(builder: (context) =>InstagramHomePage()), // Replace BookScreen with your screen
               );
               break;
             case 2:
             // Navigate to AccountScreen (replace with your screen)
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => AddContactsPage()), // Replace AccountScreen with your screen
+                MaterialPageRoute(builder: (context) => FeaturedScreen()), // Replace AccountScreen with your screen
               );
               break;
             case 3:
             // Navigate to AccountScreen (replace with your screen)
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => AccountScreen()), // Replace AccountScreen with your screen
+                MaterialPageRoute(builder: (context) => AddContactsPage()), // Replace AccountScreen with your screen
               );
               break;
           // Add more cases for additional icons/screens as needed
@@ -229,16 +246,15 @@ class _HomeScreenState extends State<HomeScreen> {
             outlinedIcon: Icons.home_rounded,
           ),
           BarItem(
-            filledIcon: Icons.cast_for_education,
-            outlinedIcon: Icons.cast_for_education_rounded,
+            filledIcon: Icons.star,
+            outlinedIcon: Icons.star,
           ),
           BarItem(
+            filledIcon: Icons.stay_primary_portrait_sharp,
+            outlinedIcon: Icons.stay_primary_portrait_sharp,
+          ),BarItem(
             filledIcon: Icons.contact_page,
             outlinedIcon: Icons.contact_page_rounded,
-          ),
-          BarItem(
-            filledIcon: Icons.account_circle,
-            outlinedIcon: Icons.account_circle_outlined,
           ),
         ],
       ),

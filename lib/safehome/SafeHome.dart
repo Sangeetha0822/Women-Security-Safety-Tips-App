@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
-//import 'package:mini_project/contacts/contacts.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:mini_project/db/db_services.dart';
 import 'package:mini_project/contacts/contactsm.dart';

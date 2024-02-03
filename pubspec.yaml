@@ -65,6 +65,10 @@ dependencies:
   rive: ^0.12.4
   flutter_svg: ^2.0.9
   cupertino_icons: ^1.0.6
+  cached_network_image: ^3.3.1
+  flutter_screenutil: ^5.9.0
+  multiple_images_picker: ^1.0.1
+
 
 
 dev_dependencies:
