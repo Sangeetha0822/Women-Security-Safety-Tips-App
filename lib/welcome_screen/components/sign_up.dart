@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-//import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mini_project/welcome_screen/components/sign_in.dart';
 import 'sign_up_form.dart';
 void showSignUpDialog(BuildContext context, {required ValueChanged onValue}) {
@@ -93,38 +92,7 @@ void showSignUpDialog(BuildContext context, {required ValueChanged onValue}) {
                         ),
                       ),
 
-                      /*Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          IconButton(
-                            onPressed: () {},
-                            padding: EdgeInsets.zero,
-                            icon: SvgPicture.asset(
-                              "assets/icons/email_box.svg",
-                              height: 44,
-                              width: 44,
-                            ),
-                          ),
-                          IconButton(
-                            onPressed: () {},
-                            padding: EdgeInsets.zero,
-                            icon: SvgPicture.asset(
-                              "assets/icons/apple_box.svg",
-                              height: 44,
-                              width: 44,
-                            ),
-                          ),
-                          IconButton(
-                            onPressed: () {},
-                            padding: EdgeInsets.zero,
-                            icon: SvgPicture.asset(
-                              "assets/icons/google_box.svg",
-                              height: 44,
-                              width: 44,
-                            ),
-                          ),
-                        ],
-                      ),*/
+
                     ],
                   ),
                 ),
